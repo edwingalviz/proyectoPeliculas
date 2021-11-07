@@ -1,0 +1,230 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+@import "movies.scss";
+ :root {
+    --Cuno: rgb(28, 28, 206);
+    --Cdos: #0f308d;
+    --Ctres: #1bc1de;
+    --Ccuatro: white;
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--Ccuatro);
+}
+
+#sideMenu {
+    background: var(--Cuno);
+    max-width: 280px;
+    width: 280px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    padding-left: 40px;
+    height: 100vmin;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+    #sideMenu nav a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 15px 30px;
+        font-weight: 300;
+        transition: all 0.3s ease-in-out;
+        border-radius: 100px 0px 10px 100px;
+    }
+
+        #sideMenu nav a:hover {
+            background: var(--Cdos);
+            border-left: 5px solid var(--Ctres);
+            padding: 15px 30px 15px 25px;
+        }
+
+    #sideMenu nav {
+        padding-top: 60px;
+    }
+
+        #sideMenu nav .active {
+            padding: 15px 30px 15px 25px;
+        }
+
+        #sideMenu nav a .fa {
+            color: white;
+            font-size: 1.4rem;
+            margin-right: 0.8rem;
+            display: inline-block;
+            width: 30px;
+            position: relative;
+            top: 2px;
+        }
+
+        #sideMenu nav a .fas {
+            color: white;
+            font-size: 1.4rem;
+            margin-right: 0.8rem;
+            display: inline-block;
+            width: 30px;
+            position: relative;
+            top: 2px;
+        }
+
+        #sideMenu nav a .far {
+            color: white;
+            font-size: 1.4rem;
+            margin-right: 0.8rem;
+            display: inline-block;
+            width: 30px;
+            position: relative;
+            top: 2px;
+        }
+
+        #sideMenu nav a .fad {
+            color: white;
+            font-size: 1.4rem;
+            margin-right: 0.8rem;
+            display: inline-block;
+            width: 30px;
+            position: relative;
+            top: 2px;
+        }
+
+        #sideMenu nav a .fa:hover {
+            color: var(--Ctres);
+        }
+
+        #sideMenu nav a .fad:hover {
+            color: var(--Ctres);
+        }
+
+        #sideMenu nav a .far:hover {
+            color: var(--Ctres);
+        }
+
+        #sideMenu nav a .fas:hover {
+            color: var(--Ctres);
+        }
+
+header {
+    margin-left: 280px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+    header .search-area {
+        display: inline-block;
+        width: 50%;
+    }
+
+       
+
+    header .user-area {
+        display: inline-block;
+        float: right;
+        padding: 10px;
+    }
+
+        header .user-area a {
+            color: var(--Ccuatro);
+            display: inline-block;
+            padding-right: 20px;
+            text-decoration: none;
+            vertical-align: top;
+            height: 42px;
+        }
+
+        header .user-area a {
+            font-size: 16px;
+            font-weight: 500;
+            padding-top: 7px;
+            border-radius: 25px;
+        }
+
+       
+
+ 
+
+input:active {
+    background: var(--Ctres);
+    outline: none;
+}
+
+#content-area {
+    margin-left: 280px;
+    padding: 15px;
+}
+
+.logo {
+    background: url("../img/logo.png") no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 185px;
+    height: 120px;
+    border-radius: 20%;
+    margin: auto;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.hi {
+    width: 100%;
+    float: right;
+}
+
+.hola {
+    height: 100px;
+    width: 25%;
+    float: left;
+}
+
+.hola1 {
+    padding-top: 30px;
+    width: 75%;
+    height: 100px;
+    float: left;
+}
+.botonEnviar{
+    width: 184px;
+    border-radius: 25px;
+    height: 45px;
+}
+.letra{
+    font-weight: bolder;
+}
+.lt{
+    font-weight: bolder;  
+}
+.pn{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.re{
+    padding-left: 25px;
+}
+
+
+
+
+

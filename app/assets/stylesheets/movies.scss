@@ -1,0 +1,33 @@
+// Place all the styles related to the Movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+.botonNuevaPelicula{
+    border-radius: 100px 100px 100px 100px;
+    -moz-border-radius: 100px 100px 100px 100px;
+    -webkit-border-radius: 100px 100px 100px 100px;
+    border: 0px solid #000000;
+    background-color: blue;
+    color: white;
+}
+h1{
+    padding-left: 25px;
+
+}
+
+.fa-plus-square:before {
+    content: "\f0fe";
+    padding: 10px;
+}
+.encabezado{
+    margin-left: 280px;
+    padding: 10px;
+    border-radius: 15px;
+}
+.cuerpoPeliculas{
+    margin-left: 280px;
+    padding: 10px;
+    border-radius: 15px; 
+}

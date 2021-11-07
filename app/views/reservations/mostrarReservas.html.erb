@@ -1,0 +1,53 @@
+<header>
+
+<div class="search-area">
+    <h1>Reservas Realizadas</h1>
+</div>
+
+</header>
+<div class="encabezado re">
+  
+  <%= form_tag("/listaReservas", method: "get") do %>
+    <b><%= label_tag(:q, "Seleccione Fechas:") %></b>
+    <%= date_field_tag(:dateReservation, placeholder = @fechaBuscada) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+  
+</div><br>
+
+<div class="cuerpoPeliculas re">
+  
+    <table class="table letra">
+        <thead>
+            <tr>
+                <td>Pelicula</td>
+                <td>Nombre</td>
+                <td>Cedula</td>
+                <td>Celular</td>
+                <td>Correo</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+            <% @arregloReserva.each do |reserva| %>
+            <% peliculaEncontrada = ""%>
+                <% @pelicula.each do |peli| %>
+                
+                    <% if(peli.id == reserva.movie_id)%>
+                        <% peliculaEncontrada = peli.titulo%>
+                    <% end %>
+                <% end %>
+                <tr>
+                    <td><%=peliculaEncontrada%></td>
+                    <td><%=reserva.nombre%></td>
+                    <td><%=reserva.cedula%></td>
+                    <td><%=reserva.celular%></td>
+                    <td><%=reserva.correo%></td>
+                    <td><%=reserva.fechaReserva%></td>
+                    
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

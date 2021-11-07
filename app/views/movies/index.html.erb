@@ -1,0 +1,110 @@
+<header>
+
+<div class="search-area">
+    <h1>Peliculas</h1>
+</div>
+<div class="user-area">
+    <a id="btnmodal" class="btn btn-info "><i class="far fa-plus-square fa" aria-hidden="true"></i>Crear Nueva Pelicula</a>
+</div>
+
+
+</header>
+
+<div class="encabezado">
+  
+  <%= form_tag("/buscar", method: "get") do %>
+    <b><%= label_tag(:q, "Seleccione Fechas:") %></b>
+    <%= date_field_tag(:date1, placeholder = Date.today)%>
+    <%= submit_tag("Buscar") %>
+  <% end %>
+  
+</div><br>
+
+<div class="cuerpoPeliculas">
+  <% @movies.each do |movies| %>
+    <div id="<%= movies.id %>" onclick="agregarId(<%= movies.id %><%= @fechas %>)" class="cuadroPelicula" style="background-image: url(<%= movies.url %>); background-size: 100% 100%;background-repeat: no-repeat;height: 348px;width: 23%;float: left; margin: 10px"></div>
+  
+  <% end %>
+
+  <div class="cuerpo"></div>
+  <div class="hola1"></div>
+</div>
+
+
+
+
+
+  
+ <div class="modal fade" id="ModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="border-radius:25px">
+      <div class="modal-header">
+        <h5 class="modal-title lt" id="exampleModalLabel" href="">Crear Pelicula</h5>
+        <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= form_with model: @peliculaNueva do |form| %>
+        <div>
+          <%= form.label :titulo, :class => "letra" %><br>
+          <%= form.text_field :titulo, :class => "form-control pn"%>
+        </div>
+
+        <div>
+          <%= form.label :sinopsis, :class => "letra" %><br>
+          <%= form.text_area :sinopsis, :class => "form-control pn"%>
+        </div>
+        <div>
+          <%= form.label :url, :class => "letra" %><br>
+          <%= form.text_area :url, :class => "form-control pn"%>
+        </div>
+        <div>
+          <%= form.label :estreno, :class => "letra" %><br>
+          <%= form.date_field :estreno, :class => "form-control pn"%>
+        </div>
+        <div>
+          <%= form.label :fin, :class => "letra" %><br>
+          <%= form.date_field :fin, :class => "form-control pn"%>
+        </div>
+        <br>
+        <div class="modal-footer">
+          <button id="btncloseModal" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <%= form.submit :'Crear Nueva Pelicula', :class => "btn-info botonEnviar"%>
+        </div>
+      <% end %>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+$("#btnmodal").click(function() {
+    $("#ModalForm").modal('show')
+});
+
+$("#btncloseModal, #closeModal").click(function() {
+    $("#ModalForm").modal('hide')
+});
+
+// $(".cuadroPelicula").click(function() {
+//     $("#ModalFormReservaton").modal('show')
+    
+// });
+
+// $("#btncloseModalR, #closeModalR").click(function() {
+//     $("#ModalFormReservaton").modal('hide')
+// });
+
+function agregarId(idmovie, date){
+  $("#movie_id").val(idmovie)
+  $("#fechaReservation").val(date)
+
+}
+
+
+</script>

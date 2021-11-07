@@ -1,0 +1,85 @@
+<header>
+
+<div class="search-area">
+    <h1>Peliculas</h1>
+</div>
+
+</header>
+<div class="encabezado">
+  
+  <%= form_tag("/buscar", method: "get") do %>
+    <b><%= label_tag(:q, "Seleccione Fechas:") %></b>
+    <%= date_field_tag(:date1, placeholder = @fechas) %>
+    <%= submit_tag("Buscar") %>
+  <% end %>
+  
+</div><br>
+
+<div class="cuerpoPeliculas">
+  <% @arregloPeliculas.each do |movies| %>
+    <div id="<%= movies.id %>" onclick="agregarId(<%= movies.id %>, <%= @fechas %>)" class="cuadroPelicula" style="background-image: url(<%= movies.url %>); background-size: 100% 100%;background-repeat: no-repeat;height: 348px;width: 23%;float: left; margin: 10px"></div>
+      
+  <% end %>
+
+  <div class="cuerpo"></div>
+  <div class="hola1"></div>
+</div> 
+
+<div class="modal fade" id="ModalFormReservaton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="border-radius:25px">
+      <div class="modal-header">
+        <h5 class="modal-title lt" id="exampleModalLabel" href="">Reservar</h5>
+        <button id="closeModalR" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+      <%= form_tag reservations_path do %>
+      
+        <label class="letra">Nombre completo</label><br>
+        <input type="text" id="post_nombre" name="reservation[nombre]" class ="form-control"><br>
+      
+        <label class="letra">Cedula</label><br>
+        <input type="text" id="post_cedula" name="reservation[cedula]" class ="form-control"><br>
+        <label class="letra">Celular</label><br>
+        <input type="text" id="post_celular" name="reservation[celular]" class ="form-control"><br>
+        <label class="letra">Correo</label><br>
+        <input type="text" id="post_correo" name="reservation[correo]" class ="form-control"><br>
+  
+        <input type="number" id="movie_id" name="reservation[movie_id]" style="display:none"><br>
+
+        <%=date_field_tag 'reservation[fechaReservation]',  @fechas, class: 'special_input fechaOculta', disabled: false%>
+        <div class="modal-footer">
+           <button id="btncloseModalR" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <input type="submit" value="Reservar Ahora" class="btn-info botonEnviar">
+        </div>
+      <% end %>
+       
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+$(".cuadroPelicula").click(function() {
+    $("#ModalFormReservaton").modal('show')
+    
+});
+
+$("#btncloseModalR, #closeModalR").click(function() {
+    $("#ModalFormReservaton").modal('hide')
+});
+
+function agregarId(idmovie, fecha){
+  
+  $("#movie_id").val(idmovie)
+  $("#fechaReservation").val(fecha)
+
+}
+</script>
